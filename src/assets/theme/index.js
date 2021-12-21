@@ -6,6 +6,11 @@ const theme = extendTheme({
     heading: 'Forum, sans-serif',
     mono: 'Menlo, monospace',
   },
+  config: {
+    initialColorMode: 'dark',
+    colorMode: 'dark',
+    useSystemColorMode: false,
+  },
 });
 
 export default theme;
