@@ -1,3 +1,4 @@
+import Footer from './components/app/Footer';
 import Loading from './components/app/Loading';
 import Nav from './components/navbar';
 import Routing from './routes';
@@ -5,9 +6,10 @@ import Routing from './routes';
 function App() {
   return (
     <div className="App">
-      <Nav/>
+      <Nav />
       <Loading />
       <Routing />
+      <Footer />
     </div>
   );
 }
