@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from './assets/theme/index';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ChakraProvider theme={theme}>
+        <App />
+      </ChakraProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),
