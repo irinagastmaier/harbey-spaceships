@@ -5,14 +5,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from './assets/theme/index';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './graphql';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <ChakraProvider theme={theme}>
+          <App />
+        </ChakraProvider>
+      </Router>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
