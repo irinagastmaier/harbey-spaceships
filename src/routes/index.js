@@ -5,7 +5,7 @@ import NotFound from '../components/app/NotFound';
 const Routing = () => (
   <Routes>
     <Route exact path="/" element={<Home />} />
-    <Route element={<NotFound />} />
+    <Route path='*' element={<NotFound />} />
   </Routes>
 );
 
