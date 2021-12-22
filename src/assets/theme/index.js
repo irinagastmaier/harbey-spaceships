@@ -13,9 +13,12 @@ const theme = extendTheme({
     }),
   },
   fonts: {
-    body: 'Lato, sans-serif',
-    heading: 'Forum, sans-serif',
-    mono: 'Menlo, monospace',
+    body: 'Open Sans, sans-serif',
+  },
+  fontWeights: {
+    normal: 300,
+    medium: 400,
+    bold: 500,
   },
   config: {
     initialColorMode: 'dark',

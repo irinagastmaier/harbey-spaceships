@@ -18,7 +18,7 @@ export default function Nav() {
     <Box bg={useColorModeValue('gray.100', '#030B10')} px={4}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <Link to="/">
-          <Box>
+          <Box fontSize="xl" style={{ fontFamily: 'Archivo' }}>
             Harbey Spaceships
             <Icon
               as={GoRocket}

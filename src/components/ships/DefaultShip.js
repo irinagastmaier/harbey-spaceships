@@ -33,7 +33,7 @@ export default function DefaultShip({ image, name, type }) {
       <Flex m="3" justifyContent="space-between">
         <Box
           fontSize={['md', 'lg', 'xl']}
-          fontWeight="semibold"
+          fontWeight="medium"
           as="h4"
           lineHeight="tight"
           isTruncated
