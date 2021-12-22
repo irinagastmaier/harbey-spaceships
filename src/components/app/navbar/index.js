@@ -15,31 +15,29 @@ export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Link to="/">
-            <Box>
-              Harbey Spaceships
-              <Icon
-                as={GoRocket}
-                h={6}
-                w={5}
-                color={useColorModeValue('teal.900', 'gray.100')}
-                ml={1}
-              />
-            </Box>
-          </Link>
+    <Box bg={useColorModeValue('gray.100', '#030B10')} px={4}>
+      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+        <Link to="/">
+          <Box>
+            Harbey Spaceships
+            <Icon
+              as={GoRocket}
+              h={6}
+              w={5}
+              color={useColorModeValue('teal.900', 'gray.100')}
+              ml={1}
+            />
+          </Box>
+        </Link>
 
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
-            </Stack>
-          </Flex>
+        <Flex alignItems={'center'}>
+          <Stack direction={'row'} spacing={7}>
+            <Button onClick={toggleColorMode}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
+          </Stack>
         </Flex>
-      </Box>
-    </>
+      </Flex>
+    </Box>
   );
 }

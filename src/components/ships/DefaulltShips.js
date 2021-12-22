@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import { Flex, Wrap, WrapItem } from '@chakra-ui/react';
 import { GET_SHIPS } from '../../services/queries';
 import Loading from '../common/Loading';
 import Ship from './DefaultShip';
@@ -10,24 +11,19 @@ export default function DefaultShips() {
   if (error) return <pre>{error.message}</pre>;
 
   return (
-    <div style={{ width: '100%' }}>
-      <h1>SpaceX Ships</h1>
-      <ul>
-        {data.ships
-          .filter((ship) => ship.year_built >= 2011)
-          .map((ship, i) => {
-            return (
-              <Ship name={ship.name} type={ship.type} image={ship.image} />
-            );
-            // return (
-            //   <>
-            //     {ship.missions.map((mission, i) => (
-            //       <div key={ship.id}></div>
-            //     ))}
-            //   </>
-            // );
-          })}
-      </ul>
-    </div>
+    <Flex
+      direction="row"
+      align="center"
+      w={['100%', '100%', '90%']}
+      m="2rem auto"
+      wrap="wrap"
+      justify="center"
+    >
+      {data.ships
+        .filter((ship) => ship.year_built >= 2011)
+        .map((ship, i) => {
+          return <Ship name={ship.name} type={ship.type} image={ship.image} />;
+        })}
+    </Flex>
   );
 }
