@@ -1,16 +1,33 @@
 import { gql } from '@apollo/client';
 
 export const GET_SHIPS = gql`
-	query getShips($name: String!, $type: String!, $mission: String!) {
-            ships(limit: 10, offset: 10, find: {name: $name, type: $type, mission: $mission}) {
-              active
-              type
-              name
-              image
-              year_built
-              model
-              successful_landings
-            }
-                    
-	}
+  {
+    ships(limit: 100 ) {
+      id
+      type
+      successful_landings
+      name
+      missions {
+        name
+        flight
+      }
+      image
+      active
+      id
+      model
+      year_built
+    }
+  }
+`;
+
+export const SHIP_SEARCH_QUERY = gql`
+  query ShipSearchQuery($filter: String!) {
+    ships(filter: $filter) {
+      type
+      name
+      missions {
+        name
+      }
+    }
+  }
 `;

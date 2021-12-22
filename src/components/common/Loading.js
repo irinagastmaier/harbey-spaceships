@@ -1,12 +1,6 @@
-import { useQuery } from '@apollo/client';
 import { Box, Flex, Spinner, Text } from '@chakra-ui/react';
-import { GET_SHIPS } from '../../services/queries';
 
 const Loading = () => {
-  const { loading } = useQuery(GET_SHIPS);
-
-  const display = loading ? 'inherit' : 'none';
-
   return (
     <Flex
       justifyContent="center"
@@ -23,11 +17,8 @@ const Loading = () => {
           color="teal.400"
           role="status"
           position="fixed"
-          zIndex="9999"
-          top="50%"
-          left="50%"
           transform="translate(-50%, -50%)"
-          display={display}
+          display="inherit"
         >
           <Text display="none">Loading...</Text>
         </Spinner>

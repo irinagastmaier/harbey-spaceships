@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { GoRocket } from 'react-icons/go';
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -19,14 +20,14 @@ export default function Nav() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Link to="/">
             <Box>
-              {/* replace with the rocket svg */}
-              <Icon viewBox="0 0 200 200" color="red.500">
-                <path
-                  fill="currentColor"
-                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                />
-              </Icon>
               Harbey Spaceships
+              <Icon
+                as={GoRocket}
+                h={6}
+                w={5}
+                color={useColorModeValue('teal.900', 'gray.100')}
+                ml={1}
+              />
             </Box>
           </Link>
 
