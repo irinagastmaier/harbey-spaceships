@@ -1,16 +1,20 @@
-import {
-  Box,
-  chakra,
-  Flex,
-  Icon,
-  Image,
-  Tooltip,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import React from 'react';
+import { Box, Flex, Icon, Image, useColorModeValue } from '@chakra-ui/react';
+import React, { useState } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 
 export default function DefaultShip({ image, name, type }) {
+  const [selectedShip, setSelectedShip] = useState('');
+
+  const urlName = name.toLowerCase().replace(/\s/g, '');
+
+  const handleShip = (name) => {
+    setSelectedShip(name);
+    if (selectedShip !== null) {
+      localStorage.setItem('ship', JSON.stringify(selectedShip));
+      window.location.href = `/ship/${urlName}`;
+    }
+  };
+
   return (
     <Box
       bg={useColorModeValue('white', '#03171C')}
@@ -22,6 +26,8 @@ export default function DefaultShip({ image, name, type }) {
       w={[300, 400, 400]}
       h="auto"
       minW="250"
+      value={name}
+      onClick={() => handleShip(name)}
     >
       <Image
         src={image}
