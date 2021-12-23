@@ -26,6 +26,9 @@ export default function Nav() {
               w={5}
               color={useColorModeValue('teal.900', 'gray.100')}
               ml={1}
+              _hover={{
+                color: '#487999',
+              }}
             />
           </Box>
         </Link>

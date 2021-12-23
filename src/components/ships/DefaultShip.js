@@ -28,6 +28,7 @@ export default function DefaultShip({ image, name, type }) {
       minW="250"
       value={name}
       onClick={() => handleShip(name)}
+      style={{ cursor: 'pointer' }}
     >
       <Image
         src={image}
