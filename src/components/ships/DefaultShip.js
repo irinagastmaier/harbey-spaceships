@@ -2,16 +2,25 @@ import { Box, Flex, Icon, Image, useColorModeValue } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 
-export default function DefaultShip({ image, name, type }) {
+export default function DefaultShip({ image, name, type, id }) {
   const [selectedShip, setSelectedShip] = useState('');
 
   const urlName = name.toLowerCase().replace(/\s/g, '');
 
+  let timer;
+  const handleTimer = () => {
+    timer = setTimeout(() => {
+      window.location.href = `/ship/${urlName}`;
+    }, 1000);
+    return () => clearTimeout(timer);
+  };
+
   const handleShip = (name) => {
     setSelectedShip(name);
-    if (selectedShip !== null) {
-      localStorage.setItem('ship', JSON.stringify(selectedShip));
-      window.location.href = `/ship/${urlName}`;
+    console.log(selectedShip)
+    if (selectedShip !== '') {
+      localStorage.setItem('ship', JSON.stringify(id));
+      handleTimer();
     }
   };
 

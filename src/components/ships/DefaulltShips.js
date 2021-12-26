@@ -27,6 +27,7 @@ export default function DefaultShips() {
               name={ship.name}
               type={ship.type}
               image={ship.image}
+              id={ship.id}
               key={i}
             />
           );

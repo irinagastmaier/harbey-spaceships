@@ -1,23 +1,32 @@
+import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { SHIP_SEARCH_QUERY } from '../../../services/queries.js';
 import useShipFilters from './helpers.js';
 import Loading from '../../common/Loading';
 import {
-  Button,
+  Flex,
   Icon,
   Input,
   InputGroup,
   InputRightElement,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
+import SearchedShip from '../../ships/SearchedShip.js';
 
 const Search = () => {
+  const [showSearch, setShowSearch] = useState(false);
   const { data, loading, error, refetch } = useQuery(SHIP_SEARCH_QUERY);
   const { operations, models } = useShipFilters();
 
   if (loading) return <Loading />;
   if (error) return <div>error</div>;
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    //add type and missions
+    operations.updateFilter('name', e.target.value);
+    setShowSearch(true);
+  };
 
   return (
     <div>
@@ -26,13 +35,13 @@ const Search = () => {
           focusBorderColor="teal.700"
           variant="filled"
           borderColor="gray.200"
-          //add type and missions
-          onChange={(e) => operations.updateFilter('name', e.target.value)}
+          onChange={handleFilter}
           type="string"
           placeholder="Enter ship: name, type or mission"
         />
         <InputRightElement width="4.5rem">
           <Icon
+            cursor="pointer"
             as={FaSearch}
             h={5}
             w={5}
@@ -52,18 +61,22 @@ const Search = () => {
           />
         </InputRightElement>
       </InputGroup>
-      {/* <div>
-        {data.ships.map((ship, i) => (
-          <div key={i}>
-            <h1 style={{ color: 'red' }}>{ship.name} </h1>
-            <h2 style={{ color: 'blue' }}>{ship.type}</h2>
-
-            {ship.missions.map((mission, i) => (
-              <div key={i}>{mission.name}</div>
-            ))}
-          </div>
-        ))}
-      </div> */}
+      {showSearch ? (
+        <Flex
+          direction="row"
+          align="center"
+          w={['100%', '100%', '90%']}
+          m="2rem auto"
+          wrap="wrap"
+          justify="center"
+        >
+          {data.ships.map((ship, i) => (
+            <div key={i}>
+              <SearchedShip ship={ship} />
+            </div>
+          ))}
+        </Flex>
+      ) : null}
     </div>
   );
 };

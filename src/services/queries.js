@@ -29,6 +29,28 @@ export const SHIP_SEARCH_QUERY = gql`
       missions {
         name
       }
+      active
+      image
+    }
+  }
+`;
+
+export const GET_SHIP_DETAILS = gql`
+  query ShipDetails($id: ID!) {
+    ship(id: $id) {
+      id
+      type
+      successful_landings
+      name
+      missions {
+        name
+        flight
+      }
+      image
+      active
+      id
+      model
+      year_built
     }
   }
 `;
