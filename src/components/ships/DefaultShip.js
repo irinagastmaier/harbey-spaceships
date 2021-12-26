@@ -17,7 +17,6 @@ export default function DefaultShip({ image, name, type, id }) {
 
   const handleShip = (name) => {
     setSelectedShip(name);
-    console.log(selectedShip)
     if (selectedShip !== '') {
       localStorage.setItem('ship', JSON.stringify(id));
       handleTimer();

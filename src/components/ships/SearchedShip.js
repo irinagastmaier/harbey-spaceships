@@ -8,11 +8,11 @@ export default function SearchedShip({ ship }) {
 
   const urlName = ship.name.toLowerCase().replace(/\s/g, '');
 
-  const handleShip = (name) => {
-    setSelectedShip(name);
-    if (selectedShip !== null) {
+  const handleShip = (id) => {
+    setSelectedShip(id);
+    if (selectedShip !== '') {
       localStorage.setItem('ship', JSON.stringify(selectedShip));
-      console.log(selectedShip)
+      console.log(selectedShip);
       window.location.href = `/ship/${urlName}`;
     }
   };
@@ -27,8 +27,7 @@ export default function SearchedShip({ ship }) {
       w={[300, 400, 400]}
       h="auto"
       minW="250"
-      value={ship.name}
-      onClick={() => handleShip(ship.name)}
+      onClick={() => handleShip(ship.id)}
       cursor="pointer"
     >
       <Image
