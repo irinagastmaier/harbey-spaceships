@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_SHIPS = gql`
   {
-    ships(limit: 100 ) {
+    ships(limit: 100) {
       id
       type
       successful_landings
@@ -21,10 +21,11 @@ export const GET_SHIPS = gql`
 `;
 
 export const SHIP_SEARCH_QUERY = gql`
-  query ShipSearchQuery($filter: String!) {
-    ships(filter: $filter) {
-      type
+  query ShipSearchQuery($shipsInput: ShipsFind) {
+    ships(find: $shipsInput) {
+      id
       name
+      type
       missions {
         name
       }
