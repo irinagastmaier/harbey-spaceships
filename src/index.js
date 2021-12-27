@@ -7,15 +7,19 @@ import { ChakraProvider } from '@chakra-ui/react';
 import theme from './assets/theme/index';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './graphql';
+import { Provider } from 'react-redux';
+import { store } from './store/index';
 
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Router>
-        <ChakraProvider theme={theme}>
-          <App />
-        </ChakraProvider>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <ChakraProvider theme={theme}>
+            <App />
+          </ChakraProvider>
+        </Router>
+      </Provider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root'),
