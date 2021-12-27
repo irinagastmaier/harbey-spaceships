@@ -3,8 +3,8 @@ import { useState } from 'react';
 export default function useShipFilters() {
   const [filters, _updateFilter] = useState({
     name: '',
-    type: '',
-    missions: { name: '' },
+    // type: '',
+    // mission: '',
   });
 
   const updateFilter = (filterType, value) => {

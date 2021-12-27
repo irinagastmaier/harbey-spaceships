@@ -37,7 +37,8 @@ const Search = () => {
           borderColor="gray.200"
           onChange={handleFilter}
           type="string"
-          placeholder="Enter ship: name, type or mission"
+          //placeholder="Enter ship: name, type or mission"
+          placeholder="Enter ship name"
         />
         <InputRightElement width="4.5rem">
           <Icon
@@ -53,8 +54,8 @@ const Search = () => {
               refetch({
                 shipsInput: {
                   name: models.filters.name,
-                  type: models.filters.type,
-                  // mission: models.filters.mission_name,
+                  // type: models.filters.type,
+                  // mission: models.filters.mission,
                 },
               })
             }
