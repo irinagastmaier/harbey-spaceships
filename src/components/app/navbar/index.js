@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import {
   Box,
   Flex,
@@ -10,9 +11,12 @@ import {
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { GoRocket } from 'react-icons/go';
+import { FaRegHeart } from 'react-icons/fa';
+import styles from './Navbar.module.css';
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
+  const quantity = useSelector((state) => state.favouriteReducer.quantity);
 
   return (
     <Box bg={useColorModeValue('gray.100', '#030B10')} px={4}>
@@ -34,6 +38,20 @@ export default function Nav() {
         </Link>
 
         <Flex alignItems={'center'}>
+          <Link to="/favourites">
+            {' '}
+            <Icon
+              as={FaRegHeart}
+              h={7}
+              w={7}
+              alignSelf={'center'}
+              _hover={{
+                color: 'red.500',
+              }}
+              mr={2}
+            />
+          </Link>
+          <span className={styles.quantity}> {quantity} </span>
           <Stack direction={'row'} spacing={7}>
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}

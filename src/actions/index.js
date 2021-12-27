@@ -1,3 +1,4 @@
+//HeartIcon.js
 export const addToFavourite = (value) => {
   return {
     type: 'ADD_TO_FAVOURITE',
@@ -5,11 +6,3 @@ export const addToFavourite = (value) => {
   };
 };
 
-//CART
-
-export const deleteAllFavourites = (value) => {
-  return {
-    type: 'DELETE_ALL_FAVOURITES',
-    payload: value,
-  };
-};

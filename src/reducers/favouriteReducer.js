@@ -5,21 +5,17 @@ export const favouriteReducer = (state = initialState, action) => {
     case 'ADD_TO_FAVOURITE':
       return {
         ...state,
-        favourite: [...state.cart, action.payload],
+        favourite: [...state.favourite, action.payload],
 
         quantity: (state.quantity += 1),
       };
-    case 'REMOVE_FAVOURITE_ITEM':
+    case 'REMOVE_FAVOURITE_SHIP':
       return {
         ...state,
         favourite: state.favourite.filter(
-          (item) => item.id !== action.payload.id,
+          (ship) => ship.id !== action.payload.id,
         ),
         quantity: (state.quantity -= 1),
-      };
-    case 'DELETE_ALL_FAVOURITES':
-      return {
-        initialState,
       };
     default:
       return state;

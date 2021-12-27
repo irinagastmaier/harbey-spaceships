@@ -1,8 +1,8 @@
-import { Box, Flex, Icon, Image, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Image, useColorModeValue } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { FaRegHeart } from 'react-icons/fa';
+import HeartIcon from '../common/HeartIcon';
 
-export default function DefaultShip({ image, name, type, id }) {
+export default function DefaultShip({ image, name, type, id, ship }) {
   const [selectedShip, setSelectedShip] = useState('');
 
   const urlName = name.toLowerCase().replace(/\s/g, '');
@@ -68,15 +68,7 @@ export default function DefaultShip({ image, name, type, id }) {
 
       <Flex justifyContent="end" pr="3" pb="2">
         {/* later this icon will add the item as a favourite - redux */}
-        <Icon
-          as={FaRegHeart}
-          h={7}
-          w={7}
-          alignSelf={'center'}
-          _hover={{
-            color: 'red.500',
-          }}
-        />
+        <HeartIcon ship={ship} />
       </Flex>
     </Box>
   );

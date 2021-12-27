@@ -1,7 +1,8 @@
 import { Box, Flex, Icon, Image, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { FaCheck, FaRegHeart } from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
 import { BiXCircle } from 'react-icons/bi';
+import HeartIcon from '../common/HeartIcon';
 
 export default function SearchedShip({ ship }) {
   const [selectedShip, setSelectedShip] = useState('');
@@ -79,15 +80,7 @@ export default function SearchedShip({ ship }) {
 
       <Flex justifyContent="end" pr="3" pb="2">
         {/* later this icon will add the item as a favourite - redux */}
-        <Icon
-          as={FaRegHeart}
-          h={7}
-          w={7}
-          alignSelf={'center'}
-          _hover={{
-            color: 'red.500',
-          }}
-        />
+        <HeartIcon ship={ship} />
       </Flex>
     </Box>
   );

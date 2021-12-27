@@ -24,6 +24,7 @@ export default function DefaultShips() {
         .map((ship, i) => {
           return (
             <Ship
+              ship={ship}
               name={ship.name}
               type={ship.type}
               image={ship.image}
