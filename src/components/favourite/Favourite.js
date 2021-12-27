@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Box, Icon, Text } from '@chakra-ui/react';
 import { FaTrash } from 'react-icons/fa';
-import { deleteAllFavourites } from '../../actions';
+
 
 export default function Favourite() {
   const dispatch = useDispatch();
