@@ -35,8 +35,6 @@ export default function DefaultShip({ image, name, type, id, ship }) {
       h="auto"
       minW="250"
       value={name}
-      onClick={() => handleShip(name)}
-      style={{ cursor: 'pointer' }}
     >
       <Image
         src={image}
@@ -44,6 +42,8 @@ export default function DefaultShip({ image, name, type, id, ship }) {
         roundedTop="lg"
         w="100%"
         h={[200]}
+        onClick={() => handleShip(name)}
+        style={{ cursor: 'pointer' }}
       />
       <Flex m="3" justifyContent="space-between">
         <Box

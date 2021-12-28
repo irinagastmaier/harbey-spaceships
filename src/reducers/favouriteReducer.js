@@ -9,11 +9,11 @@ export const favouriteReducer = (state = initialState, action) => {
 
         quantity: (state.quantity += 1),
       };
-    case 'REMOVE_FAVOURITE_SHIP':
+    case 'REMOVE_FROM_FAVOURITE':
       return {
         ...state,
         favourite: state.favourite.filter(
-          (ship) => ship.id !== action.payload.id,
+          (item) => item.id !== action.payload.id,
         ),
         quantity: (state.quantity -= 1),
       };

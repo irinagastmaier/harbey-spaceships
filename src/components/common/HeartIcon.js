@@ -13,7 +13,12 @@ const HeartIcon = ({ ship }) => {
       _hover={{
         color: 'red.500',
       }}
-      onClick={() => dispatch({ type: 'ADD_TO_FAVOURITE', payload: ship })}
+      onClick={() =>
+        dispatch(
+          { type: 'ADD_TO_FAVOURITE', payload: ship },
+          localStorage.setItem('favourites', JSON.stringify(ship)),
+        )
+      }
     />
   );
 };
