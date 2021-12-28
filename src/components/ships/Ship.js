@@ -25,7 +25,7 @@ export default function Ship() {
       minW="250"
       style={{ cursor: 'pointer' }}
       margin="2rem auto"
-      p={2}
+      p={6}
     >
       <Flex
         m="3"

@@ -38,8 +38,21 @@ export default function Nav() {
         </Link>
 
         <Flex alignItems={'center'}>
-          <Link to="/favourites">
-            {' '}
+          {quantity >= 1 ? (
+            <Link to="/favourites">
+              {' '}
+              <Icon
+                as={FaRegHeart}
+                h={7}
+                w={7}
+                alignSelf={'center'}
+                _hover={{
+                  color: 'red.500',
+                }}
+                mr={2}
+              />
+            </Link>
+          ) : (
             <Icon
               as={FaRegHeart}
               h={7}
@@ -50,7 +63,7 @@ export default function Nav() {
               }}
               mr={2}
             />
-          </Link>
+          )}
           <span className={styles.quantity}> {quantity} </span>
           <Stack direction={'row'} spacing={7}>
             <Button onClick={toggleColorMode}>

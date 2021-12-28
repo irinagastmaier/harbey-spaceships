@@ -9,6 +9,7 @@ const HeartIcon = ({ ship }) => {
       as={FaRegHeart}
       h={7}
       w={7}
+      cursor="pointer"
       alignSelf={'center'}
       _hover={{
         color: 'red.500',
