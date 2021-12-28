@@ -19,7 +19,13 @@ export default function Nav() {
   const quantity = useSelector((state) => state.favouriteReducer.quantity);
 
   return (
-    <Box bg={useColorModeValue('gray.100', '#030B10')} px={4}>
+    <Box
+      bg={useColorModeValue('gray.100', '#030B10')}
+      px={4}
+      _hover={{
+        color: '#487999',
+      }}
+    >
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <Link to="/">
           <Box fontSize="xl" style={{ fontFamily: 'Archivo' }}>
