@@ -5,6 +5,8 @@ import useShipFilters from './helpers.js';
 import Loading from '../../common/Loading';
 import {
   Flex,
+  FormControl,
+  FormLabel,
   Icon,
   Input,
   InputGroup,
@@ -24,21 +26,45 @@ const Search = () => {
   const handleFilter = (e) => {
     e.preventDefault();
     //add type and missions
-    operations.updateFilter('name', e.target.value);
+    operations.updateFilter([e.target.name], e.target.value);
     setShowSearch(true);
   };
 
   return (
-    <div>
+    <FormControl>
       <InputGroup size="md" w="60%" m="0 auto">
+        <FormLabel w="40%" pt={2} color="teal.700">
+          Enter ship:
+        </FormLabel>
         <Input
           focusBorderColor="teal.700"
           variant="filled"
           borderColor="gray.200"
           onChange={handleFilter}
           type="string"
-          //placeholder="Enter ship: name, type or mission"
-          placeholder="Enter ship name"
+          name="name"
+          _placeholder={{ color: 'teal.700' }}
+          placeholder="name"
+        />
+        <Input
+          focusBorderColor="teal.700"
+          variant="filled"
+          borderColor="gray.200"
+          onChange={handleFilter}
+          type="string"
+          name="type"
+          _placeholder={{ color: 'teal.700' }}
+          placeholder="type"
+        />
+        <Input
+          focusBorderColor="teal.700"
+          variant="filled"
+          borderColor="gray.200"
+          onChange={handleFilter}
+          type="string"
+          name="mission"
+          _placeholder={{ color: 'teal.700' }}
+          placeholder="mission"
         />
         <InputRightElement width="4.5rem">
           <Icon
@@ -54,8 +80,8 @@ const Search = () => {
               refetch({
                 shipsInput: {
                   name: models.filters.name,
-                  // type: models.filters.type,
-                  // mission: models.filters.mission,
+                  type: models.filters.type,
+                  mission: models.filters.mission,
                 },
               })
             }
@@ -78,7 +104,7 @@ const Search = () => {
           ))}
         </Flex>
       ) : null}
-    </div>
+    </FormControl>
   );
 };
 

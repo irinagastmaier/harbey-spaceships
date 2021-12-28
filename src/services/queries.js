@@ -54,25 +54,3 @@ export const GET_SHIP_DETAILS = gql`
     }
   }
 `;
-
-//search by name, type or mission
-
-// export const SHIP_SEARCH_QUERY2 = gql`
-//   query ShipSearch2($name: String, $mission: String, $type: String) {
-//     ships(find: { name: $name, mission: $mission, type: $type }) {
-//       id
-//       type
-//       successful_landings
-//       name
-//       missions {
-//         name
-//         flight
-//       }
-//       image
-//       active
-//       id
-//       model
-//       year_built
-//     }
-//   }
-// `;

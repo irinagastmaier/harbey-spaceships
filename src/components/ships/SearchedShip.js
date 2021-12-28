@@ -47,6 +47,7 @@ export default function SearchedShip({ ship }) {
           isTruncated
         >
           {ship.name}
+          {ship.mission}
         </Box>
         <Box fontSize="2xl">
           <Box as="span" fontSize={['xs', 'sm', 'md']}>
