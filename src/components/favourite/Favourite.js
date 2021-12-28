@@ -8,7 +8,7 @@ export default function Favourite() {
   const favourite = useSelector((state) => state.favouriteReducer.favourite);
   let favourites = JSON.parse(localStorage.getItem('favourites'));
 
-  const [newFavourites, setFavourites] = useState([favourites]);
+  const [newFavourites] = useState([favourites]);
   console.log(newFavourites);
 
   const names = [];
